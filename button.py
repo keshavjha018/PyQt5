@@ -34,7 +34,7 @@ class mywindow(QMainWindow):
 
 def window():
     app = QApplication(sys.argv) 
-    win = mywindow() #initialized a window
+    win = mywindow()
     
     #show and exit
     win.show()
