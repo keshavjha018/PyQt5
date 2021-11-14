@@ -17,6 +17,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.uic import loadUiType
 from testbotUI import Ui_desktop_ui
 
+state = "Hello !"
 
 def speak(audio):
     # defining the speak function so that our assistant can speak any string given as input
@@ -44,9 +45,12 @@ class MainThread(QThread):
             take.adjust_for_ambient_noise(source) #ignoring the background noise
             take.pause_threshold = 0.6 # seconds of non-speaking audio before a phrase is considered complete
             take.energy_threshold = 200  # minimum audio energy to consider for recording
+            global state
+            state = "Listening..."
             print("Listning....")
             audio = take.listen(source)
         try:
+            state = "Recognizing..."
             print("Recognizing...")
             query = take.recognize_google(audio, language='en-in') 
             #Performs speech recognition on "audio_data", using the Google Speech Recognition API.
@@ -105,6 +109,7 @@ class Main(QMainWindow):
         label_date = current_date.toString(Qt.ISODate)
         self.ui.textBrowser.setText(label_date)
         self.ui.textBrowser_2.setText(label_time)
+        self.ui.textBrowser_3.setText(state)
 
 app = QApplication(sys.argv)
 assistant = Main()
