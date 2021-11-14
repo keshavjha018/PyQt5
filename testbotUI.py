@@ -38,20 +38,34 @@ class Ui_desktop_ui(object):
         self.pushButton_2.setObjectName("pushButton_2")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(300, 20, 131, 31))
+        self.label_2.setStyleSheet("background:transparent;\n"
+"font: 14pt \"MS Shell Dlg 2\";\n"
+"border-radius:none;\n"
+"color: rgb(255, 255, 255);")
         self.label_2.setText("")
         self.label_2.setObjectName("label_2")
-        self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(450, 340, 81, 21))
-        self.label_3.setText("")
-        self.label_3.setObjectName("label_3")
-        self.label_4 = QtWidgets.QLabel(self.centralwidget)
-        self.label_4.setGeometry(QtCore.QRect(480, 340, 81, 21))
-        self.label_4.setText("")
-        self.label_4.setObjectName("label_4")
         self.label_5 = QtWidgets.QLabel(self.centralwidget)
         self.label_5.setGeometry(QtCore.QRect(470, 20, 111, 31))
+        self.label_5.setStyleSheet("background:transparent;\n"
+"border-radius:none;\n"
+"color: rgb(255, 255, 255);\n"
+"font: 75 14pt \"MS Shell Dlg 2\";")
         self.label_5.setText("")
         self.label_5.setObjectName("label_5")
+        self.textBrowser = QtWidgets.QTextBrowser(self.centralwidget)
+        self.textBrowser.setGeometry(QtCore.QRect(300, 30, 131, 21))
+        self.textBrowser.setStyleSheet("background:transparent;\n"
+"border-radius:none;\n"
+"color: rgb(255, 255, 255);\n"
+"font: 75 8pt \"MS Shell Dlg 2\";")
+        self.textBrowser.setObjectName("textBrowser")
+        self.textBrowser_2 = QtWidgets.QTextBrowser(self.centralwidget)
+        self.textBrowser_2.setGeometry(QtCore.QRect(470, 20, 111, 21))
+        self.textBrowser_2.setStyleSheet("background:transparent;\n"
+"font: 75 8pt \"MS Shell Dlg 2\";\n"
+"border-radius:none;\n"
+"color: rgb(255, 255, 255);")
+        self.textBrowser_2.setObjectName("textBrowser_2")
         desktop_ui.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(desktop_ui)
         self.statusbar.setObjectName("statusbar")
@@ -65,6 +79,11 @@ class Ui_desktop_ui(object):
         desktop_ui.setWindowTitle(_translate("desktop_ui", "MainWindow"))
         self.pushButton.setText(_translate("desktop_ui", "Run"))
         self.pushButton_2.setText(_translate("desktop_ui", "Exit"))
+        self.textBrowser_2.setHtml(_translate("desktop_ui", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8pt; font-weight:72; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:14pt;\"><br /></p></body></html>"))
 
 
 if __name__ == "__main__":

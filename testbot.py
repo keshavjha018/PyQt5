@@ -58,19 +58,18 @@ class MainThread(QThread):
 
     def taskExecution(self):
         speak("Hello sir, Welcome to Desktop Assistant. Please Give a Command")
-        self.query = self.takecomand()
+        while(True):
+            self.query = self.takecomand()
         
-        if "twitter" in self.query:
-            speak("Opening twitter")
-            speak("Opening twitter")
-            driver = webdriver.Chrome(PATH)
-            driver.get("https://twitter.com/")
+            if "twitter" in self.query:
+                speak("Opening twitter")
+                speak("Opening twitter")
+                driver = webdriver.Chrome(PATH)
+                driver.get("https://twitter.com/")
 
-        self.query = self.takecomand()
-
-        if "Close" in self.query:
-            speak("Closing Window")
-            driver.quit
+            elif "close" in self.query:
+                speak("Closing Window")
+                driver.quit()
 
 #object for mainthread class
 startExecution = MainThread()
@@ -104,8 +103,8 @@ class Main(QMainWindow):
         current_date = QDate.currentDate()
         label_time = current_time.toString('hh:mm:ss')
         label_date = current_date.toString(Qt.ISODate)
-        self.ui.label_2.setText(label_date)
-        self.ui.label_3.setText(label_time)
+        self.ui.textBrowser.setText(label_date)
+        self.ui.textBrowser_2.setText(label_time)
 
 app = QApplication(sys.argv)
 assistant = Main()
