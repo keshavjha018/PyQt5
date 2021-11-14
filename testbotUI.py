@@ -72,6 +72,12 @@ class Ui_desktop_ui(object):
 "color: rgb(255, 255, 255);\n"
 "font: 75 9pt \"MS Shell Dlg 2\";")
         self.textBrowser_3.setObjectName("textBrowser_3")
+        self.textBrowser_4 = QtWidgets.QTextBrowser(self.centralwidget)
+        self.textBrowser_4.setGeometry(QtCore.QRect(510, 180, 201, 171))
+        self.textBrowser_4.setStyleSheet("background:transparent;\n"
+"color: rgb(255, 255, 255);\n"
+"font: 75 9pt \"MS Shell Dlg 2\";")
+        self.textBrowser_4.setObjectName("textBrowser_4")
         desktop_ui.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(desktop_ui)
         self.statusbar.setObjectName("statusbar")

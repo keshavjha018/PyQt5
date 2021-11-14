@@ -18,6 +18,8 @@ from PyQt5.uic import loadUiType
 from testbotUI import Ui_desktop_ui
 
 state = "Hello !"
+chat = ["Walter: Hello Sir !"]
+chatlist = "-------\n"
 
 def speak(audio):
     # defining the speak function so that our assistant can speak any string given as input
@@ -28,6 +30,8 @@ def speak(audio):
     engine.setProperty('rate', 188) #set the speed of voice 
     engine.say(audio) 
     print(audio)
+    global chat
+    chat.append("Walter: " + audio)
     engine.runAndWait() #Runs an event loop until all commands queued up until this method call complete
 
 class MainThread(QThread):
@@ -55,8 +59,11 @@ class MainThread(QThread):
             query = take.recognize_google(audio, language='en-in') 
             #Performs speech recognition on "audio_data", using the Google Speech Recognition API.
             print("User said :", query)
+            global chat
+            chat.append("You: " + query)
         except Exception as e:
             print("Say that again please....")
+            state = "Say Again please !"
             return "None"
         return query.lower() # returning the query in lower alphabets
 
@@ -110,6 +117,12 @@ class Main(QMainWindow):
         self.ui.textBrowser.setText(label_date)
         self.ui.textBrowser_2.setText(label_time)
         self.ui.textBrowser_3.setText(state)
+        global chatlist
+        for item in chat:
+            if item not in chatlist:
+                chatlist = chatlist + item + " \n"
+            
+        self.ui.textBrowser_4.setText(chatlist)
 
 app = QApplication(sys.argv)
 assistant = Main()
